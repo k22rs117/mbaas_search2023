@@ -64,7 +64,7 @@
       let attack = parseInt($("#attack").val());
       TestDataClass.lessThan("defence", attack).fetchAll()
         .then(function(results) {
-          showResults(results);
+          showResults2(results);
         })
     }
 
@@ -73,7 +73,7 @@
       let defence = parseInt($("#defence").val());
       TestDataClass.greaterThan("attack", defence).fetchAll()
         .then(function(results) {
-          showResults(results);
+          showResults2(results);
         })
     }
 
@@ -93,6 +93,7 @@
       msg += "</table>";
       $("#message").html(msg);
     }
+
   </script>
 </head>
 
