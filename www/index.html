@@ -61,8 +61,17 @@
 
     function win() {
       let TestDataClass = ncmb.DataStore(db);
-      let attack = parseInt($("#defence").val());
-      TestDataClass.greaterThan("defence", defence).fetchAll()
+      let attack = parseInt($("#attack").val());
+      TestDataClass.lessThan("defence", attack).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
+    function defeat() {
+      let TestDataClass = ncmb.DataStore(db);
+      let defence = parseInt($("#defence").val());
+      TestDataClass.greaterThan("attack", defence).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -105,6 +114,7 @@
     <label for="defence">defence:</label>
     <input id="defence" type="number" placeholder="monster defence">
   </div>
+
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
