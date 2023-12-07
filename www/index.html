@@ -64,7 +64,7 @@
       let attack = parseInt($("#attack").val());
       TestDataClass.lessThan("defence", attack).fetchAll()
         .then(function(results) {
-          showResults2(results);
+          showResults(results);
         })
     }
 
@@ -73,13 +73,27 @@
       let defence = parseInt($("#defence").val());
       TestDataClass.greaterThan("attack", defence).fetchAll()
         .then(function(results) {
-          showResults2(results);
+          showResults(results);
         })
     }
 
     function showResults(results) {
       // テーブルのヘッダを生成
+      let TestDataClass = ncmb.DataStore(db);
+      let n = $("#name").val();
+      let l = parseInt($("#level").val());
+      let a = parseInt($("#attack").val());
+      let d = parseInt($("#defence").val());
+
       let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+
+      msg += "<tr>";
+      msg += "<td>" + n + "</td>";
+      msg += "<td class='num'>" + l + "</td>";
+      msg += "<td class='num'>" + a + "</td>";
+      msg += "<td class='num'>" + d + "</td>";
+      msg += "</tr>";
+
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
