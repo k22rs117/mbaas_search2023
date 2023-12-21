@@ -124,13 +124,14 @@
       let a = parseInt($("#attack").val());
       let d = parseInt($("#defence").val());
 
-      let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+      let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th><th>VS</th></tr>";
 
       msg += "<tr>";
       msg += "<td>" + n + "</td>";
       msg += "<td class='num'>" + l + "</td>";
       msg += "<td class='num'>" + a + "</td>";
       msg += "<td class='num'>" + d + "</td>";
+      msg += "<td>" + "-" + "</td>";
       msg += "</tr>";
 
       for (let i = 0; i < results2.length; i++) {
@@ -140,6 +141,7 @@
         msg += "<td class='num'>" + results2[i].level + "</td>";
         msg += "<td class='num'>" + results2[i].attack + "</td>";
         msg += "<td class='num'>" + results2[i].defence + "</td>";
+        msg += "<td>" + "-" + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
