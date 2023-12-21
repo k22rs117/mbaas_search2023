@@ -80,8 +80,8 @@
     function vs() {
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass.order("name" , false).fetchAll()
-        .then(function(results) {
-          showResults(results);
+        .then(function(results2) {
+          showResults2(results2);
         })
     }
 
@@ -109,6 +109,37 @@
         msg += "<td class='num'>" + results[i].level + "</td>";
         msg += "<td class='num'>" + results[i].attack + "</td>";
         msg += "<td class='num'>" + results[i].defence + "</td>";
+        msg += "</tr>";
+      }
+      // テーブルのテイラを生成
+      msg += "</table>";
+      $("#message").html(msg);
+    }
+
+    function showResults2(results2) {
+      // テーブルのヘッダを生成
+      let TestDataClass = ncmb.DataStore(db);
+      let n = $("#name").val();
+      let l = parseInt($("#level").val());
+      let a = parseInt($("#attack").val());
+      let d = parseInt($("#defence").val());
+
+      let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+
+      msg += "<tr>";
+      msg += "<td>" + n + "</td>";
+      msg += "<td class='num'>" + l + "</td>";
+      msg += "<td class='num'>" + a + "</td>";
+      msg += "<td class='num'>" + d + "</td>";
+      msg += "</tr>";
+
+      for (let i = 0; i < results2.length; i++) {
+        // 各データを収めた表の列を生成
+        msg += "<tr>";
+        msg += "<td>" + results2[i].name + "</td>";
+        msg += "<td class='num'>" + results2[i].level + "</td>";
+        msg += "<td class='num'>" + results2[i].attack + "</td>";
+        msg += "<td class='num'>" + results2[i].defence + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
