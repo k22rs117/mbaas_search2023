@@ -60,7 +60,7 @@
     }
 
     function win() {
-      let TestDataClass = ncmb.DataStore(db);
+     let TestDataClass = ncmb.DataStore(db);
       let attack = parseInt($("#attack").val());
       TestDataClass.lessThan("defence", attack).fetchAll()
         .then(function(results) {
@@ -141,7 +141,17 @@
         msg += "<td class='num'>" + results2[i].level + "</td>";
         msg += "<td class='num'>" + results2[i].attack + "</td>";
         msg += "<td class='num'>" + results2[i].defence + "</td>";
-        msg += "<td>" + "-" + "</td>";
+        if(a > results2[i].defence){
+            msg += "<td>" + "Win" + "</td>";
+        }else if(d < results2[i].attack){
+            msg += "<td>" + "Defeat" + "</td>";
+        }else if(a == results2[i].defence && d == results2[i].attack){
+            msg += "<td>" + "Draw" + "</td>";
+        }else if(a <= results2[i].defence && d >= results2[i].attack){
+            msg += "<td>" + "Draw" + "</td>";
+        }else {
+            msg += "<td>" + "Error" + "</td>";
+        }
         msg += "</tr>";
       }
       // テーブルのテイラを生成
