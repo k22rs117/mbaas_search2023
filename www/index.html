@@ -77,6 +77,14 @@
         })
     }
 
+    function vs() {
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("name" , false).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let TestDataClass = ncmb.DataStore(db);
